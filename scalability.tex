@@ -1,0 +1,96 @@
+\documentclass[twocolumn,letterpaper,10pt]{article}
+\usepackage{iasted}
+\usepackage{times}
+\usepackage[dvips]{graphicx}
+\usepackage{CJKutf8}
+ 
+\usepackage{mathrsfs}
+
+\usepackage{textcomp}
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{xspace}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{url}
+\usepackage{listings}
+\usepackage{balance}
+\usepackage{subfig}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{fancyvrb}
+\usepackage{lastpage}
+\usepackage{alltt}
+\usepackage{etoolbox}
+\usepackage{ifdraft}
+\usepackage{titlesec}
+\usepackage{cleveref} % After hyperref, listings
+\usepackage{fancyhdr}
+
+\usepackage{macro}
+\newenvironment{CompactItemize}{\begin{itemize}}{\end{itemize}}
+\def\code#1{{\texttt{#1}}}
+
+\begin{document}
+
+\date{}
+
+\title{\deferu: A Lightweight Concurrent Update Method with Deferred Processing
+for Linux Kernel Scalability}
+
+\author{
+Joohyun Kyong and Sung-Soo Lim\\
+School of Computer Science\\
+Kookmin University\\
+Seoul, Korea\\
+email: joohyun0115@gmail.com, sslim@kookmin.ac.kr \\
+}
+
+\maketitle
+
+\thispagestyle{empty}
+
+\noindent
+{\bf\normalsize ABSTRACT}\newline
+{
+We propose a novel light weight concurrent update method, \deferu, 
+to improve performance scalability for Linux kernel on many-core systems
+through eliminating lock contentions for update-heavy global data structures
+during process spawning and optimizing update logs. 
+The proposed \deferu is implemented into Linux kernel 3.19 and evaluated 
+using representative benchmark programs. 
+Our evaluation reveals that the Linux kernel with \deferu shows performance
+improvement by ranging from 1.2x through 2.2x on a 120 core system.
+
+%We make the Linux fork scale to large numbers of cores by using our 
+%lightweight concurrent update method, \deferu, in which updates can proceed
+%concurrently.
+%\deferu provides benefits over previous schemes:it is conceptually simpler and
+%easier.
+%Our evaluation shows performance improvements on 120 cores ranging from 1.6x to
+%2.2x for an implementation of this design in the Linux 3.19 kernel.
+%In this paper, we present \deferu's design, efficient techniques for the Linux
+%fork scalability, and \deferu's performance evaluation.
+} \vspace{2ex}
+   
+\noindent
+{\bf\normalsize KEY WORDS}\newline
+{Scalability, Operating System, Linux, Concurrent Update}
+
+\input{intro}
+\input{related}
+\input{deferu}
+\input{linux}
+\input{impl}
+\input{eval}
+\input{concl}
+
+{
+\bibliographystyle{plain}
+\bibliography{ref}
+}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+\end{document}

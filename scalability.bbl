@@ -1,0 +1,140 @@
+\begin{thebibliography}{10}
+
+\bibitem{AIM7Benchmark}
+Aim benchmarks.
+\newblock \url{http://sourceforge.net/projects/aimbench}.
+
+\bibitem{Andi2011adding}
+Tim~Chen Andi~Kleen.
+\newblock Scaling problems in fork.
+\newblock 2011.
+
+\bibitem{Arbel2014ConcurrentRCU}
+Maya Arbel and Hagit Attiya.
+\newblock Concurrent updates with rcu: Search tree as an example.
+\newblock In {\em Proceedings of the 2014 ACM Symposium on Principles of
+  Distributed Computing}, PODC '14, pages 196--205, New York, NY, USA, 2014.
+
+\bibitem{SilasBoydWickizerPth}
+Silas Boyd-Wickizer.
+\newblock Optimizing communications bottlenecks in multiprocessor operating
+  systems kernels.
+\newblock 2014.
+
+\bibitem{SilasBoydWickizer2010LinuxScales48}
+Silas Boyd-Wickizer, Austin~T. Clements, Yandong Mao, Aleksey Pesterev,
+  M.~Frans Kaashoek, Robert Morris, and Nickolai Zeldovich.
+\newblock An analysis of {Linux} scalability to many cores.
+\newblock In {\em 9\textsuperscript{th} USENIX Symposium on Operating System
+  Design and Implementation}, pages 1--16, Vancouver, BC, Canada, October 2010.
+
+\bibitem{AustinTClements2012RCUBalancedTrees}
+Austin~T. Clements, M.~Frans Kaashoek, and Nickolai Zeldovich.
+\newblock Scalable address spaces using {RCU} balanced trees.
+\newblock In {\em Architectural Support for Programming Languages and Operating
+  Systems (ASPLOS 2012)}, pages 199--210, London, UK, February 2012.
+
+\bibitem{Clements2013RadixVM}
+Austin~T. Clements, M.~Frans Kaashoek, and Nickolai Zeldovich.
+\newblock Radixvm: Scalable address spaces for multithreaded applications.
+\newblock In {\em Proceedings of the 8th ACM European Conference on Computer
+  Systems}, EuroSys '13, pages 211--224, New York, NY, USA, 2013.
+
+\bibitem{MCSLocksKernel}
+J.~Corbet.
+\newblock Mcs locks and qspinlocks, 2014.
+\newblock \url{https://lwn.net/Articles/590243/}.
+
+\bibitem{Courtois71}
+P.~J. Courtois, F.~Heymans, and D.~L. Parnas.
+\newblock Concurrent control with ``readers'' and ``writers''.
+\newblock {\em Communications of the {ACM}}, 14(10):667--668, October 1971.
+
+\bibitem{David2015ASYNCHRONIZED}
+Tudor David, Rachid Guerraoui, and Vasileios Trigonakis.
+\newblock Asynchronized concurrency: The secret to scaling concurrent search
+  data structures.
+\newblock In {\em Proceedings of the Twentieth International Conference on
+  Architectural Support for Programming Languages and Operating Systems},
+  ASPLOS '15, pages 631--644, New York, NY, USA, 2015.
+
+\bibitem{Fomitchev2004Lockfree}
+Mikhail Fomitchev and Eric Ruppert.
+\newblock Lock-free linked lists and skip lists.
+\newblock In {\em Proceedings of the Twenty-third Annual ACM Symposium on
+  Principles of Distributed Computing}, PODC '04, pages 50--59, 2004.
+
+\bibitem{Gramoli2015Synchrobench}
+Vincent Gramoli.
+\newblock More than you ever wanted to know about synchronization:
+  Synchrobench, measuring the impact of the synchronization on concurrent
+  algorithms.
+\newblock In {\em Proceedings of the 20th ACM SIGPLAN Symposium on Principles
+  and Practice of Parallel Programming}, PPoPP 2015, pages 1--10, New York, NY,
+  USA, 2015.
+
+\bibitem{Harris2001Lockfree}
+Timothy~L. Harris.
+\newblock A pragmatic implementation of non-blocking linked-lists.
+\newblock In {\em Proceedings of the 15th International Conference on
+  Distributed Computing}, DISC '01, pages 300--314, London, UK, UK, 2001.
+
+\bibitem{Matveev2015RLU}
+Alexander Matveev, Nir Shavit, Pascal Felber, and Patrick Marlier.
+\newblock Read-log-update: A lightweight synchronization mechanism for
+  concurrent programming.
+\newblock In {\em Proceedings of the 25th Symposium on Operating Systems
+  Principles}, SOSP '15, pages 168--183, New York, NY, USA, 2015.
+
+\bibitem{McKenney2008ParallelProgramming}
+Paul~E. McKenney.
+\newblock {\em Is Parallel Programming Hard, And, If So, What Can You Do About
+  It?}
+\newblock kernel.org, Corvallis, OR, USA, 2011.
+\newblock Available:
+  \url{http://kernel.org/pub/linux/kernel/people/paulmck/perfbook/perfbook.html}.
+
+\bibitem{McKenney98}
+Paul~E. McKenney and John~D. Slingwine.
+\newblock Read-copy update: Using execution history to solve concurrency
+  problems.
+\newblock In {\em {Parallel and Distributed Computing and Systems}}, pages
+  509--518, Las Vegas, NV, October 1998.
+
+\bibitem{mcvoy1996lmbench}
+Larry~W McVoy, Carl Staelin, et~al.
+\newblock lmbench: Portable tools for performance analysis.
+\newblock In {\em USENIX annual technical conference}, pages 279--294. San
+  Diego, CA, USA, 1996.
+
+\bibitem{MellorCrummey91}
+John~M. Mellor-Crummey and Michael~L. Scott.
+\newblock Scalable reader-writer synchronization for shared-memory
+  multiprocessors.
+\newblock In {\em Proceedings of the Third PPOPP}, pages 106--113,
+  Williamsburg, VA, April 1991.
+
+\bibitem{MagedMichael04a}
+Maged~M. Michael.
+\newblock Hazard pointers: Safe memory reclamation for lock-free objects.
+\newblock In {\em IEEE Transactions on Parallel and Distributed Systems},
+  volume~15, pages 491--504, June 2004.
+
+\bibitem{petrank2013lock}
+Erez Petrank and Shahar Timnat.
+\newblock Lock-free data-structure iterators.
+\newblock In {\em DISC '13 Proceedings of the 27th International Conference on
+  Distributed Computing, Jerusalem, Israel}. 2013.
+
+\bibitem{Tim2013adding}
+Dave~Hansen Tim~Chen, Andi~Kleen.
+\newblock Linux scalability issues.
+\newblock In {\em Linux Plumbers Conference, September}, 2013.
+
+\bibitem{zhang2013practical}
+Kunlong Zhang, Yujiao Zhao, Yajun Yang, Yujie Liu, and Michael Spear.
+\newblock Practical non-blocking unordered lists.
+\newblock In {\em DISC '13 Proceedings of the 27th International Conference on
+  Distributed Computing, Jerusalem, Israel}. 2013.
+
+\end{thebibliography}

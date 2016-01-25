@@ -1,0 +1,144 @@
+%% Filename: iasted2004.sty
+%%
+%% Author: IASTED
+%% Date: March 2, 2001
+%% Updated: April 21, 2004 by Roy Maltby at IASTED
+%% Updated: June 28, 2011
+%%
+%% If you notice any problems or bugs in this file, please contact calgary@iasted.org
+%%
+%%
+%% INSTRUCTIONS FOR USE OF THE STYLE FILE.
+%%
+%% The following lines should be placed at the start of the document.
+%%
+%%  \documentclass[twocolumn,letterpaper,10pt]{article}
+%%  \usepackage{iasted}
+%%  \usepackage{times}
+%%  \begin{document}
+%%
+%% The title and author information should be written like this:
+%%
+%%  \title{Paper Title - maximum 16 words}
+%%
+%%  \author{
+%%  First A. Author \\
+%%  Department or Laboratory\\
+%%  University or Company\\
+%%  Address, (if necessary) \\
+%%  City, Province or State, Country \\
+%%  email: email-address \\
+%%  \and
+%%  Second B. Author and Third C. Author\\
+%%  Department or Laboratory\\
+%%  University or Company\\
+%%  Address (if necessary)\\
+%%  City, Province or State, Country \\
+%%  email: email-address \\
+%%  }
+%%
+%%  \maketitle
+%%  \thispagestyle{empty}
+%%
+%%
+%% In order for IASTED to publish your paper, the final manuscript submitted
+%% should not contain any fixed-resolution bitmap fonts (type 3).  By default,
+%% DVIPS will create a postscript file containing resolution-specific type 3
+%% bitmap fonts.  However, if the "www" printer is used to create the postscript
+%% file, dvips can generate file with resolution-independent type 1 fonts:
+%%
+%% dvips -Pwww -t letter -o file.ps file.dvi
+%%
+%% Using the "pdflatex" to create a pdf file directly should achieve the same effect.
+%%
+%% A common problem is .ps or .pdf files produced in A4 format (210 mm by 297 mm)
+%% instead of letter format (8.5 inches by 11 inches), even with letterpaper
+%% specified at the start of the .tex file and using "dvips -t letter".
+%% It may be necessary to edit your config.ps file so that the letter size
+%% parameters are before the A4 parameters, and use latex, dvips, and then
+%% the Adobe Acrobat Distiller rather than using pdflatex to go directly from
+%% .tex to .pdf, or pdfwrite to go from .ps to .pdf.
+%%
+%%
+%% Additional information on this subject can be found on the ADOBE website:
+%%   www.adobe.com/support/techdocs/
+%%
+%%
+%% The formatting instructions posted on the web have been prepared using this style
+%% file and you can use the file formatting.tex as an example.
+%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%Section Definition
+\renewcommand\section{\@startsection {section}{1}{\z@}{-3.5ex plus-1ex minus
+    -.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\large\bf}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}{-3.25ex plus-1ex
+    minus-.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\bf}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{3}{\z@}{-3.25ex plus
+    -1ex minus-.2ex}{2.3ex plus.2ex minus -.2ex}{\reset@font\bf}}
+\renewcommand\thesection{\@arabic\c@section}
+\renewcommand\thesubsection{\@arabic\c@section.\@arabic\c@subsection}
+
+%%Title Definition
+\def\@maketitle{\vspace{.5in}
+            {\bf\Large\centering\MakeUppercase \@title \par}
+            \vskip 1em
+            {\normalsize\centering
+                \begin{tabular}[t]{c}\@author
+                \end{tabular}\par}
+                \vfil
+                \vspace{4ex}}
+
+%%Tables and Figures
+
+\long\def\@makecaption#1#2{%
+   \vskip 10\p@
+   \setbox\@tempboxa\hbox{#1. #2}%
+   \ifdim \wd\@tempboxa >\hsize
+       #1. #2\par
+     \else
+       \hbox to\hsize{\hfil\box\@tempboxa\hfil}%
+   \fi
+   \vskip 10\p@}
+
+\def\thefigure{\@arabic\c@figure}
+
+\def\fps@figure{tbp}
+\def\ftype@figure{1}
+\def\ext@figure{lof}
+\def\fnum@figure{\figurename~\thefigure}
+\def\figure{\@float{figure}}
+\let\endfigure\end@float
+\@namedef{figure*}{\@dblfloat{figure}}
+\@namedef{endfigure*}{\end@dblfloat}
+
+\def\thetable{\@arabic\c@table}
+
+\def\fps@table{tbp}
+\def\ftype@table{2}
+\def\ext@table{lot}
+\def\fnum@table{\tablename~\thetable}
+\def\table{\@float{table}}
+\let\endtable\end@float
+\@namedef{table*}{\@dblfloat{table}}
+\@namedef{endtable*}{\end@dblfloat}
+
+
+%%Layout
+\pagestyle{empty}                         %%%% No page Numbering
+
+\paperheight 11in
+\paperwidth 8.5in
+ 
+\textheight     9.5in
+\columnsep      0.5in
+\textwidth      7in
+\topmargin      -0.25in
+\headheight     0.0in
+\headsep        0.0in
+\oddsidemargin  -0.25in
+\parindent      5ex
+%%\parskip        10pt   old instructions said add a blank line, but it's better to save space.
+\def\baselinestretch{1}
+\flushbottom
