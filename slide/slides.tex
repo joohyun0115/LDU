@@ -1,0 +1,373 @@
+\documentclass[english]{beamer} %,handout
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[cjk,hangul,usecjkt1font]{kotex}
+
+\makeatletter
+
+\usepackage{listings}
+
+\setbeamercovered{transparent}
+
+\usecolortheme{kesl}
+
+\usepackage[absolute,overlay]{textpos}
+\setlength{\TPHorizModule}{\paperwidth}
+\setlength{\TPVertModule}{\paperheight}
+\textblockorigin{0mm}{0mm}
+ 
+\usepackage{babel}
+\beamertemplatenavigationsymbolsempty
+\usepackage{verbatim}
+\begin{document}
+
+\title[Memory Scalability]{
+LDU: A Lightweight Concurrent Update Method with Deferred Processing for Linux
+Kernel Scalability
+}
+
+\author{Joohyun Kyong and Sung-Soo Lim}
+\institute[Kookmin University]
+{
+  School of Computer Science\\
+  Kookmin University
+}
+
+\setbeamercovered{dynamic} 
+%TODO Audit Words, reduce
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\begin{frame}{Outline}
+	\begin{itemize}
+	\item Background of research and History of the Linux scalability 
+	\item Linux Scalability Problems
+	\item Our new method and Evaluation
+	\item Future plans and Summary
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{40 Years of Microprocessor Trend Data}
+\pgfdeclareimage[width=\paperwidth]{1_intel_cpu_1}{.//slides/1_intel_cpu_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{1_intel_cpu_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{40 Years of Microprocessor Trend Data}
+\pgfdeclareimage[width=\paperwidth]{1_intel_cpu_2}{.//slides/1_intel_cpu_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{1_intel_cpu_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{History of the Linux scalability research}
+\pgfdeclareimage[width=\paperwidth]{2_history_1}{.//slides/2_history_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{2_history_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{History of the Linux scalability research}
+\pgfdeclareimage[width=\paperwidth]{2_history_3}{.//slides/2_history_3}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{2_history_3}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{What about update?}
+\end{frame}
+
+\begin{frame}{Linux Scalability Problems - AIM7- multiuser}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_problem}{.//slides/3_aim7_problem}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_problem}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Linux Scalability Problems}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_problem_idle_1}{.//slides/3_aim7_problem_idle_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_problem_idle_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Linux Scalability Problems}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_problem_idle_2}{.//slides/3_aim7_problem_idle_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_problem_idle_2}
+\end{textblock}
+\end{frame}
+\begin{frame}{Linux Scalability Problems}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_problem_locktrace}{.//slides/3_aim7_problem_locktrace}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_problem_locktrace}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Linux Scalability Problems}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_120core_anon_lockstat}{.//slides/3_aim7_120core_anon_lockstat}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_120core_anon_lockstat}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Linux Scalability Problems}
+\pgfdeclareimage[width=\paperwidth]{3_aim7_120core_i_mmap_lockstat}{.//slides/3_aim7_120core_i_mmap_lockstat}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{3_aim7_120core_i_mmap_lockstat}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Update Serialization}
+\pgfdeclareimage[width=\paperwidth]{4_update_lock}{.//slides/4_update_lock}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{4_update_lock}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{Solution - Non blocking Data Structure}
+\pgfdeclareimage[width=\paperwidth]{5_solution_1}{.//slides/5_solution_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{5_solution_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Solution - Non blocking Data Structure}
+\pgfdeclareimage[width=\paperwidth]{5_solution_2}{.//slides/5_solution_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{5_solution_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Per-core processing}
+\pgfdeclareimage[width=\paperwidth]{5_solution_3}{.//slides/5_solution_3}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{5_solution_3}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Per-core processing}
+\pgfdeclareimage[width=\paperwidth]{5_solution_4}{.//slides/5_solution_4}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{5_solution_4}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Per-core processing}
+\pgfdeclareimage[width=\paperwidth]{5_solution_5}{.//slides/5_solution_5}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{5_solution_5}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_1}{.//slides/6_LDU_basic_1_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_1}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_2}{.//slides/6_LDU_basic_1_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_2}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_3}{.//slides/6_LDU_basic_1_3}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_3}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_4}{.//slides/6_LDU_basic_1_4}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_4}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_5}{.//slides/6_LDU_basic_1_5}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_5}
+\end{textblock}
+\end{frame}
+
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_1_6}{.//slides/6_LDU_basic_1_6}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_1_6}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_2_1}{.//slides/6_LDU_basic_2_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_2_1}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_2_2}{.//slides/6_LDU_basic_2_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_2_2}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_2_3}{.//slides/6_LDU_basic_2_3}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_2_3}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_2_4}{.//slides/6_LDU_basic_2_4}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_2_4}
+\end{textblock}
+\end{frame}
+
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_3_1}{.//slides/6_LDU_basic_3_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_3_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_3_2}{.//slides/6_LDU_basic_3_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_3_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_3_3}{.//slides/6_LDU_basic_3_3}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_3_3}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{LDU: An example of Lightweight Deferred Update}
+\pgfdeclareimage[width=\paperwidth]{6_LDU_basic_3_4}{.//slides/6_LDU_basic_3_4}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{6_LDU_basic_3_4}
+\end{textblock}
+\end{frame}
+
+
+
+\begin{frame}{Concurrent update for Linux kernel}
+\pgfdeclareimage[width=\paperwidth]{7_linux_file_orig}{.//slides/7_linux_file_orig}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{7_linux_file_orig}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{Concurrent update for Linux kernel}
+\pgfdeclareimage[width=\paperwidth]{7_linux_file_ldu}{.//slides/7_linux_file_ldu}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{7_linux_file_ldu}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{Evaluation - AIM7}
+\pgfdeclareimage[width=\paperwidth]{8_aim7_eval_1}{.//slides/8_aim7_eval_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{8_aim7_eval_1}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{Evaluation - AIM7}
+\pgfdeclareimage[width=\paperwidth]{8_aim7_eval_1_1}{.//slides/8_aim7_eval_1_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{8_aim7_eval_1_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Evaluation - AIM7}
+\pgfdeclareimage[width=\paperwidth]{8_aim7_eval_1_2}{.//slides/8_aim7_eval_1_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{8_aim7_eval_1_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Evaluation - AIM7}
+\pgfdeclareimage[width=\paperwidth]{8_aim7_eval_2}{.//slides/8_aim7_eval_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{8_aim7_eval_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Evaluation - EXIM}
+\pgfdeclareimage[width=\paperwidth]{9_exim_eval_1}{.//slides/9_exim_eval_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{9_exim_eval_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Evaluation - EXIM}
+\pgfdeclareimage[width=\paperwidth]{9_exim_eval_1_1}{.//slides/9_exim_eval_1_1}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{9_exim_eval_1_1}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Evaluation - EXIM}
+\pgfdeclareimage[width=\paperwidth]{9_exim_eval_1_2}{.//slides/9_exim_eval_1_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{9_exim_eval_1_2}
+\end{textblock}
+\end{frame}
+
+
+\begin{frame}{Evaluation - EXIM}
+\pgfdeclareimage[width=\paperwidth]{9_exim_eval_2}{.//slides/9_exim_eval_2}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{9_exim_eval_2}
+\end{textblock}
+\end{frame}
+
+\begin{frame}{Summary}
+	\begin{itemize}
+	\item Reviewing the types of locks
+	\item the Linux scalability
+	\item Update-heavily workload Problems
+	\item Research topic and Future plans
+	\item \text{https://github.com/KMU-embedded/scalablelinux}
+	\end{itemize}
+\end{frame}
+
+
+\begin{frame}{Q n A}
+\pgfdeclareimage[width=\paperwidth]{10_qna}{.//slides/10_qna}
+\begin{textblock}{1}(0,0)
+\pgfuseimage<+->{10_qna}
+\end{textblock}
+\end{frame}
+
+
+\end{document}
