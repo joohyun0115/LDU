@@ -12,3 +12,6 @@ improvement by ranging from 1.2x through 2.2x on a 120 core system.
 [Paper](scalability.pdf)
 
 
+Joohyun Kyong, Sung-Soo Lim
+"LDU: A LIGHTWEIGHT CONCURRENT UPDATE METHOD WITH DEFERRED PROCESSING FOR LINUX KERNEL SCALABILITY"
+Parallel and Distributed Computing and Networks (PDCN 2016) [Paper](scalability.pdf)
